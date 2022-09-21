@@ -4,6 +4,6 @@
  * Created With: IntelliJ IDEA Community Edition
  */
 package com.niit.jdp.repository;
-
 public class SongsRepository {
+
 }

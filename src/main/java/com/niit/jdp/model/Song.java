@@ -5,5 +5,6 @@
  */
 package com.niit.jdp.model;
 
-public class Songs {
+public class Song {
+
 }

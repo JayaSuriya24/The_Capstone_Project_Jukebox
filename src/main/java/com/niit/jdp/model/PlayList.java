@@ -5,5 +5,13 @@
  */
 package com.niit.jdp.model;
 
+import java.util.List;
+
+//create class playlist
 public class PlayList {
+    private int playlistId;
+    private String playlistName;
+    private List<Song> song;
+
+
 }
