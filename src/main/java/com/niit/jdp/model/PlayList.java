@@ -13,5 +13,6 @@ public class PlayList {
     private String playlistName;
     private List<Song> song;
 
-
+    public PlayList() {
+    }
 }
