@@ -15,4 +15,10 @@ public class PlayList {
 
     public PlayList() {
     }
+
+    public PlayList(int playlistId, String playlistName, List<Song> song) {
+        this.playlistId = playlistId;
+        this.playlistName = playlistName;
+        this.song = song;
+    }
 }
