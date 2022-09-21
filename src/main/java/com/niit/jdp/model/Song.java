@@ -12,6 +12,7 @@ public class Song {
     private String name;
     private String genre;
 
+    //constructors
     public Song() {
     }
 
@@ -21,6 +22,7 @@ public class Song {
         this.genre = genre;
     }
 
+    //getter and setter
     public int getId() {
         return id;
     }
@@ -45,6 +47,7 @@ public class Song {
         this.genre = genre;
     }
 
+    //Equals and hash code method
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,12 +68,9 @@ public class Song {
         return result;
     }
 
+    // To string method for playlist class
     @Override
     public String toString() {
-        return "Song{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", genre='" + genre + '\'' +
-                '}';
+        return "Song{" + "id=" + id + ", name='" + name + '\'' + ", genre='" + genre + '\'' + '}';
     }
 }
