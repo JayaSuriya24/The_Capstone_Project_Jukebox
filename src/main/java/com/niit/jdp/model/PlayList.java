@@ -67,4 +67,13 @@ public class PlayList {
         result = 31 * result + (song != null ? song.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "PlayList{" +
+                "playlistId=" + playlistId +
+                ", playlistName='" + playlistName + '\'' +
+                ", song=" + song +
+                '}';
+    }
 }
