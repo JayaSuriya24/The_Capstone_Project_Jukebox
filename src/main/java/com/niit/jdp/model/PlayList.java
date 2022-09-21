@@ -14,6 +14,7 @@ public class PlayList {
     private String playlistName;
     private List<Song> song;
 
+    //constructors
     public PlayList() {
     }
 
@@ -23,6 +24,7 @@ public class PlayList {
         this.song = song;
     }
 
+    //getter and setter
     public int getPlaylistId() {
         return playlistId;
     }
@@ -47,6 +49,7 @@ public class PlayList {
         this.song = song;
     }
 
+    //Equals and hash code method
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,8 +58,7 @@ public class PlayList {
         PlayList playList = (PlayList) o;
 
         if (playlistId != playList.playlistId) return false;
-        if (!Objects.equals(playlistName, playList.playlistName))
-            return false;
+        if (!Objects.equals(playlistName, playList.playlistName)) return false;
         return Objects.equals(song, playList.song);
     }
 
@@ -68,12 +70,9 @@ public class PlayList {
         return result;
     }
 
+    // To string method for playlist class
     @Override
     public String toString() {
-        return "PlayList{" +
-                "playlistId=" + playlistId +
-                ", playlistName='" + playlistName + '\'' +
-                ", song=" + song +
-                '}';
+        return "PlayList{" + "playlistId=" + playlistId + ", playlistName='" + playlistName + '\'' + ", song=" + song + '}';
     }
 }
