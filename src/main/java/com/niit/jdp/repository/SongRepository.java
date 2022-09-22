@@ -7,9 +7,9 @@ package com.niit.jdp.repository;
 
 import com.niit.jdp.model.Song;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SongRepository {
 
@@ -29,6 +29,34 @@ public class SongRepository {
             numberOfRowsAffected = preparedStatement.executeUpdate();
         }
         return numberOfRowsAffected > 0;
+    }
+
+    //get All
+    public List<Song> getAll(Connection connection) throws SQLException {
+
+        String readQuery = "SELECT * FROM `jukebox`.`song`;";
+
+        List<Song> songsList = new ArrayList<>();
+        //  create a statement object
+        try (Statement statement = connection.createStatement()) {
+
+            // execute the query
+            ResultSet songsResultSet = statement.executeQuery(readQuery);
+
+            //  iterate over the result set and create a list of songs objects
+            while (songsResultSet.next()) {
+                //  fetch the values of the current row from the result set
+
+                int songId = songsResultSet.getInt("id");
+                String songName = songsResultSet.getString("name");
+                String songGenre = songsResultSet.getString("genre");
+                String artist = songsResultSet.getString("artist");
+                String album = songsResultSet.getString("album");
+                Song songList = new Song(songId, songName, songGenre, artist, album);
+                songsList.add(songList);
+            }
+        }
+        return songsList;
     }
 
 }
