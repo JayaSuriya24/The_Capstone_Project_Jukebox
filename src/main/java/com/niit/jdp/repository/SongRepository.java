@@ -59,4 +59,31 @@ public class SongRepository {
         return songsList;
     }
 
+    //get By ID method
+    public Song getById(Connection connection, int id) throws SQLException {
+
+        String searchQuery = "SELECT * FROM `jukebox`.`song` WHERE(`id` = ?);";
+        Song song = new Song();
+        //  create a statement object
+        try (PreparedStatement preparedStatement = connection.prepareStatement(searchQuery)) {
+
+            //  set the values of the query parameters
+            preparedStatement.setInt(1, id);
+            //  execute the query
+            ResultSet songResultSet = preparedStatement.executeQuery();
+            //  check if the result set is empty
+            while (songResultSet.next()) {
+                //  fetch the values of the current row from the result set
+                int songId = songResultSet.getInt("id");
+                String songName = songResultSet.getString("name");
+                String songGenre = songResultSet.getString("genre");
+                String artist = songResultSet.getString("artist");
+                String album = songResultSet.getString("album");
+                song = new Song(songId, songName, songGenre, artist, album);
+            }
+        }
+        return song;
+    }
+
+
 }
