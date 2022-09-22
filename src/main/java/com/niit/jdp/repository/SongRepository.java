@@ -97,4 +97,14 @@ public class SongRepository {
         return numberOfRowsAffected > 0;
     }
 
+    //delete By ID
+    public boolean deleteById(Connection connection, int id) throws SQLException {
+        String deleteQuery = "DELETE FROM `jukebox`.`song` WHERE (`id` = ?);";
+        int numberOfRowsAffected;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
+            preparedStatement.setInt(1, id);
+            numberOfRowsAffected = preparedStatement.executeUpdate();
+        }
+        return numberOfRowsAffected > 0;
+    }
 }
