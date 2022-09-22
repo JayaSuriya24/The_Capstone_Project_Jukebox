@@ -85,5 +85,16 @@ public class SongRepository {
         return song;
     }
 
+    //
+    public boolean updateName(Connection connection, int id, String name) throws SQLException {
+        String updateQuery = "UPDATE `jukebox`.`song` SET `name` = ? WHERE (`id` = ?);";
+        int numberOfRowsAffected;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, id);
+            numberOfRowsAffected = preparedStatement.executeUpdate();
+        }
+        return numberOfRowsAffected > 0;
+    }
 
 }
