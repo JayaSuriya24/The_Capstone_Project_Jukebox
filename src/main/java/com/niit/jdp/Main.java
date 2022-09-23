@@ -1,25 +1,19 @@
 package com.niit.jdp;
 
+
 import com.niit.jdp.service.DatabaseService;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        int choice = 0;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your choice: ");
+        choice = scanner.nextInt();
 
         DatabaseService databaseService = new DatabaseService();
 
-        try {
-            databaseService.connect();
-
-
-            Connection connection = databaseService.getConnection();
-        } catch (ClassNotFoundException | SQLException exception) {
-            System.err.println("Could not connect to the database!");
-            exception.printStackTrace();
-
-
-        }
     }
 }

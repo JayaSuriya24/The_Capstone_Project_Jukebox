@@ -7,24 +7,25 @@ package com.niit.jdp.model;
 
 import java.util.Objects;
 
+//create the class song
 public class Song {
     private int id;
     private String name;
+    private String artistName;
     private String genre;
-    private String artist;
+    private String songPath;
 
-    private String album;
-
-    //constructors
+    //no arguments constructor
     public Song() {
     }
 
-    public Song(int id, String name, String genre, String artist, String album) {
+    //parameterized constructor
+    public Song(int id, String name, String artistName, String genre, String songPath) {
         this.id = id;
         this.name = name;
+        this.artistName = artistName;
         this.genre = genre;
-        this.artist = artist;
-        this.album = album;
+        this.songPath = songPath;
     }
 
     //getter and setter
@@ -44,6 +45,14 @@ public class Song {
         this.name = name;
     }
 
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
+    }
+
     public String getGenre() {
         return genre;
     }
@@ -52,23 +61,15 @@ public class Song {
         this.genre = genre;
     }
 
-    public String getArtist() {
-        return artist;
+    public String getSongPath() {
+        return songPath;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setSongPath(String songPath) {
+        this.songPath = songPath;
     }
 
-    public String getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(String album) {
-        this.album = album;
-    }
-    //Equals and hash code method
-
+    //equals and hashcode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,25 +79,23 @@ public class Song {
 
         if (id != song.id) return false;
         if (!Objects.equals(name, song.name)) return false;
+        if (!Objects.equals(artistName, song.artistName)) return false;
         if (!Objects.equals(genre, song.genre)) return false;
-        if (!Objects.equals(artist, song.artist)) return false;
-        return Objects.equals(album, song.album);
+        return Objects.equals(songPath, song.songPath);
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (artistName != null ? artistName.hashCode() : 0);
         result = 31 * result + (genre != null ? genre.hashCode() : 0);
-        result = 31 * result + (artist != null ? artist.hashCode() : 0);
-        result = 31 * result + (album != null ? album.hashCode() : 0);
+        result = 31 * result + (songPath != null ? songPath.hashCode() : 0);
         return result;
     }
 
-
-    // To string method for playlist class
     @Override
     public String toString() {
-        return "Song{" + "id=" + id + ", name='" + name + '\'' + ", genre='" + genre + '\'' + ", artist='" + artist + '\'' + ", album='" + album + '\'' + '}';
+        return "Song{" + "Id=" + id + ", Name='" + name + '\'' + ", artistName='" + artistName + '\'' + ", genre='" + genre + '\'' + ", songPath='" + songPath + '\'' + '}';
     }
 }
