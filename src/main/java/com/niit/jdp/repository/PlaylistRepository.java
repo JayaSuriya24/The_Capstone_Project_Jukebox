@@ -40,7 +40,7 @@ public class PlaylistRepository implements RepositoryPlaylist {
         try (Statement statement = connection.createStatement()) {
             resultSet = statement.executeQuery(readQuery);
             while (resultSet.next()) {
-                System.out.format("%s     %n%s     %n%s     %n%s%n", "Playlist ID :" + resultSet.getInt(1) + " ", "Playlist Name :" + resultSet.getString(2) + " ", "Song ID :" + resultSet.getInt(3) + " ", "Song Name :" + resultSet.getString(4));
+                System.out.format("%s%n%s%n%s%n%s%n", "Playlist ID :" + resultSet.getInt(1) + " ", "Playlist Name :" + resultSet.getString(2) + " ", "Song ID :" + resultSet.getInt(3) + " ", "Song Name :" + resultSet.getString(4));
                 System.out.println();
             }
         }

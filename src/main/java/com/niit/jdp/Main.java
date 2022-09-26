@@ -1,6 +1,5 @@
 package com.niit.jdp;
 
-import com.niit.jdp.model.Playlist;
 import com.niit.jdp.model.Song;
 import com.niit.jdp.repository.PlaylistRepository;
 import com.niit.jdp.repository.SongRepository;
@@ -9,7 +8,6 @@ import com.niit.jdp.service.MusicPlayerService;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -74,23 +72,19 @@ public class Main {
                         System.out.println("Enter 1 to add song to your playlist : ");
                         int next = scanner.nextInt();
                         if (1 == next) {
-                            List<Song> all = songRepository.getAll(connection);
-                            System.out.println(all);
+
                             System.out.println(" => Enter Song ID to add into the playlist :");
                             int songId = scanner.nextInt();
                             System.out.println(" => Enter Song Name to add into the playlist :- ");
                             String songName = scanner.next();
                             boolean playlist = playlistRepository.createPlaylist(connection, playlistName, songId, songName);
                             System.out.println(playlist);
-                            System.out.println("Enter 2 to add one more song to your playlist (or) Enter 0 to stop adding");
-                            scanner.nextInt();
+
                         }
                         break;
                     }
                     case 5: {
                         System.out.println();
-                        List<Playlist> all = playlistRepository.getAll(connection);
-                        System.out.println(all);
                         System.out.println(" => Enter playlist ID to delete :- ");
                         int playlistId = scanner.nextInt();
                         playlistRepository.deleteById(connection, playlistId);

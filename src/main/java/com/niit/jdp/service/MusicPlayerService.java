@@ -76,7 +76,7 @@ public class MusicPlayerService {
 
                     case 4: {
                         clip.stop();
-                        System.out.println("Stop and Exit");
+                        System.out.println("Stop ");
                         break;
                     }
                     default: {
