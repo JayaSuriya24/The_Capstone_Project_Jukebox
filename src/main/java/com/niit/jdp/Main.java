@@ -65,13 +65,13 @@ public class Main {
                         break;
                     }
                     case 4: {
-                        System.out.println();
-                        System.out.println("Enter new Playlist Name : ");
-                        String playlistName = scanner.next();
-                        System.out.println("Your Playlist Name is created : " + playlistName);
                         System.out.println("Enter 1 to add song to your playlist : ");
                         int next = scanner.nextInt();
                         if (1 == next) {
+                            System.out.println();
+                            System.out.println(" =>Enter new Playlist Name : ");
+                            String playlistName = scanner.next();
+                            System.out.println("Your Playlist Name is created : " + playlistName);
 
                             System.out.println(" => Enter Song ID to add into the playlist :");
                             int songId = scanner.nextInt();
@@ -88,17 +88,21 @@ public class Main {
                         System.out.println(" => Enter playlist ID to delete :- ");
                         int playlistId = scanner.nextInt();
                         playlistRepository.deleteById(connection, playlistId);
-
                     }
+                    break;
+                    case 6:
+                        System.out.println("Exit");
+                        break;
                     default:
-                        System.out.println("Invalid Choice");
+                        System.err.println("Invalid choice");
+
                 }
             } catch (SQLException exception) {
                 System.err.println("Could not connect to the database!");
                 exception.printStackTrace();
-                choice = 5;
+                choice = 6;
             }
-        } while (choice != 5);
+        } while (choice != 6);
     }
 
 
